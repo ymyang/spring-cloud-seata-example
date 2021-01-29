@@ -1,0 +1,12 @@
+#开启sentinel对feign的支持
+#feign.sentinel.enabled: true
+feign.client.config.default.connectTimeout: 10000
+feign.client.config.default.readTimeout: 10000
+
+spring.cloud.alibaba.seata.tx-service-group: business-service
+seata:
+  enabled: true
+  service:
+    grouplist.default: 127.0.0.1:8091
+    vgroup-mapping.business-service: default
+    disable-global-transaction: false
