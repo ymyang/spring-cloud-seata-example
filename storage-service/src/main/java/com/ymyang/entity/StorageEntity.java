@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 @Data
-@TableName("t_account")
+@TableName("t_storage")
 public class StorageEntity {
 
     @TableId(type = IdType.AUTO)

@@ -1,5 +1,7 @@
 package com.ymyang.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ymyang.entity.StorageEntity;
 import com.ymyang.mapper.StorageMapper;
@@ -13,7 +15,9 @@ public class StorageServiceImpl extends ServiceImpl<StorageMapper, StorageEntity
 
     @Override
     public void updateStorage(StorageEntity param) {
-        StorageEntity storage = this.getById(param.getId());
+        QueryWrapper<StorageEntity> wrapper = Wrappers.query();
+        wrapper.eq("commodity_code", param.getCommodityCode());
+        StorageEntity storage = this.getOne(wrapper);
         if (storage == null) {
             throw new RuntimeException("Storage not found");
         }

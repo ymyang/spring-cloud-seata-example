@@ -36,10 +36,10 @@ public class BusinessController {
         }
 
         Map<String, Object> order = new HashMap<>();
-        storage.put("userId", 1);
-        storage.put("commodityCode", "C00321");
-        storage.put("count", 2);
-        storage.put("money", 2);
+        order.put("userId", 1);
+        order.put("commodityCode", "C00321");
+        order.put("count", 2);
+        order.put("money", 2);
 
         String orderRes = orderFeignClient.order(order);
         if (!"ok".equals(orderRes)) {
