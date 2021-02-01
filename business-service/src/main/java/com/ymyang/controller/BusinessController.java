@@ -41,7 +41,7 @@ public class BusinessController {
         storage.put("count", 2);
         storage.put("money", 2);
 
-        String orderRes = orderFeignClient.order(storage);
+        String orderRes = orderFeignClient.order(order);
         if (!"ok".equals(orderRes)) {
             throw new RuntimeException();
         }
