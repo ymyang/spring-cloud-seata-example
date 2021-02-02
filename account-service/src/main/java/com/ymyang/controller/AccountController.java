@@ -1,5 +1,6 @@
 package com.ymyang.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.ymyang.entity.AccountEntity;
 import com.ymyang.service.AccountService;
 import io.seata.core.context.RootContext;
@@ -17,7 +18,7 @@ public class AccountController {
 
     @PostMapping
     public String updateMoney(@RequestBody AccountEntity param) {
-        log.info(" POST /api/account, xid: " + RootContext.getXID());
+        log.info(" POST /api/account, xid: " + RootContext.getXID() + ", param: " + JSON.toJSONString(param));
 
         accountService.updateMoney(param);
 

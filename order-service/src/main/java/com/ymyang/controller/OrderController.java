@@ -1,5 +1,6 @@
 package com.ymyang.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.ymyang.entity.OrderEntity;
 import com.ymyang.service.OrderService;
 import io.seata.core.context.RootContext;
@@ -20,7 +21,7 @@ public class OrderController {
 
     @PostMapping
     public String order(@RequestBody OrderEntity param) {
-        log.info("POST /api/order, xid: " + RootContext.getXID());
+        log.info("POST /api/order, xid: " + RootContext.getXID() + ", param: " + JSON.toJSONString(param));
 
         accountService.order(param);
 

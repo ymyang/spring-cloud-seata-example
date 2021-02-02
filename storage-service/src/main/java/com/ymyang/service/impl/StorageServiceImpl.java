@@ -27,7 +27,7 @@ public class StorageServiceImpl extends ServiceImpl<StorageMapper, StorageEntity
 
         storage.setCount(storage.getCount() - param.getCount());
 
-        this.updateById(param);
+        this.updateById(storage);
     }
 
 }

@@ -23,7 +23,7 @@ public class AccountServiceImpl extends ServiceImpl<AccountMapper, AccountEntity
 
         account.setMoney(account.getMoney() - param.getMoney());
 
-        this.updateById(param);
+        this.updateById(account);
     }
 
 }

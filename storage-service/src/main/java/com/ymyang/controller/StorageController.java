@@ -1,5 +1,6 @@
 package com.ymyang.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.ymyang.entity.StorageEntity;
 import com.ymyang.service.StorageService;
 import io.seata.core.context.RootContext;
@@ -20,7 +21,7 @@ public class StorageController {
 
     @PostMapping
     public String updateStorage(@RequestBody StorageEntity param) {
-        log.info(" POST /api/storage, xid: " + RootContext.getXID());
+        log.info(" POST /api/storage, xid: " + RootContext.getXID() + ", param: " + JSON.toJSONString(param));
 
         storageService.updateStorage(param);
 
